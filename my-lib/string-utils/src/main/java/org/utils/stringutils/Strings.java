@@ -1,4 +1,4 @@
-package org.sample.stringutils;
+package org.utils.stringutils;
 
 import java.util.UUID;
 

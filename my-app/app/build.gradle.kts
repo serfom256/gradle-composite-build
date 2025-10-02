@@ -12,12 +12,12 @@ application {
     mainClass = "org.myapp.Main"
 }
 dependencies{
-    implementation("org.sample.numberutils:number-utils:1.0")
-    implementation("org.sample.stringutils:string-utils:1.0")
-    implementation(extlibs.commons.lang3)
+    implementation("org.utils.numberutils:number-utils:1.0")
+    implementation("org.utils.stringutils:string-utils:1.0")
+    implementation(platform.commons.lang3)
     implementation(projects.api)
-    testImplementation(libs.junit.jupiter)
-    testImplementation(libs.guava)
+    testImplementation(platform.junit.jupiter)
+    testImplementation(platform.guava) // if you're using typesafe reference from local bom, it should looks like libs.your.dependency 
 }
 
 tasks.named<Test>("test") {

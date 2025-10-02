@@ -1,7 +1,7 @@
 package org.myapp;
 
-import org.sample.numberutils.Numbers;
-import org.sample.stringutils.Strings;
+import org.utils.numberutils.Numbers;
+import org.utils.stringutils.Strings;
 import org.apache.commons.lang3.StringUtils;
 import org.api.Api;
 

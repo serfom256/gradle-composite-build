@@ -2,8 +2,8 @@
 
 ## Project structure:
 ```
-├── ext-lib # library from external repository
-│   ├── ext-lib # module, that will be published as a platform
+├── ext-lib-platform # library from external repository
+│   ├── ext-platform # bill of material, that will be published as a platform
 │   │   └── build.gradle.kts
 │   ├── gradle
 │   │   └── libs.versions.toml
@@ -58,7 +58,7 @@
 │   │       └── main
 │   │           └── java
 │   │               └── org
-│   │                   └── sample
+│   │                   └── utils
 │   │                       └── numberutils
 │   │                           └── Numbers.java
 │   ├── settings.gradle.kts
@@ -69,7 +69,7 @@
 │           └── main
 │               └── java
 │                   └── org
-│                       └── sample
+│                       └── utils
 │                           └── stringutils
 │                               └── Strings.java
 │
@@ -101,7 +101,7 @@ main application `:my-app:app` includes :
 - :my-app:api
 - :my-lib:number-utils
 - :my-lib:string-utils
-- ext-lib(from external repository like ~/.m2)
+- ext-lib-platform(from external repository like ~/.m2)
 
 ---
 
@@ -110,7 +110,7 @@ Requirements:
 - Java 17 +
 - gradle 8.13 +
 
-Also you need to publish `:ext-lib` to local maven repository(~/.m2): `gradle :ext-lib:publishToMavenLocal`
+Also you need to publish `:ext-platform` to local maven repository(~/.m2): `cd ext-lib-platform && gradle :ext-platform:publishToMavenLocal`
 
 ## How to run main app with external dependencies:
 ```

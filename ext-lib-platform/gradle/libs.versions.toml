@@ -1,0 +1,24 @@
+[versions]
+checkstyle = "8.37"
+junit-jupiter = "5.10.0"
+groovy = "3.0.5"
+guava = "33.2.1-jre"
+
+
+[libraries]
+commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version = { strictly = "[3.8, 4.0[", prefer="3.9" } }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+groovy-core = { module = "org.codehaus.groovy:groovy", version.ref = "groovy" }
+groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy" }
+groovy-nio = { module = "org.codehaus.groovy:groovy-nio", version.ref = "groovy" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit-jupiter" }
+
+
+[bundles]
+groovy = ["groovy-core", "groovy-json", "groovy-nio"]
+junit = ["junit-jupiter"]
+
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.0.0" }
+versions = { id = "com.github.ben-manes.versions", version = "0.45.0" }

@@ -11,9 +11,9 @@ dependencyResolutionManagement { // external platform consumption
         mavenLocal()
     }
     versionCatalogs {
-        create("extlibs") {
-            from("org.extlib:ext-lib:latest")
-            // from(files("../ext-lib/gradle/libs.versions.toml")) - if you want to import it from local file
+        create("platform") {
+            from("org.extlib:ext-platform:latest")
+            // from(files("../ext-lib-platform/gradle/libs.versions.toml")) - if you want to import platform(bom) from local file
         }
     }
 }

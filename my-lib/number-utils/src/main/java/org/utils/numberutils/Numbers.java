@@ -1,4 +1,4 @@
-package org.sample.numberutils;
+package org.utils.numberutils;
 
 import java.util.Random;
 
