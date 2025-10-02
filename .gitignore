@@ -6,6 +6,8 @@ target/
 out/
 .gradle
 bin/
+.kotlin/
+
 ### STS ###
 .apt_generated
 .classpath

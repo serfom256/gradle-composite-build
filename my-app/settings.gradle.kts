@@ -2,6 +2,10 @@ rootProject.name="my-app"
 include(":app")
 include(":api")
 
+pluginManagement { // used for plugin resolution
+    includeBuild("../plugins/license-plugin")
+}
+
 dependencyResolutionManagement { // external platform consumption
     repositories {
         mavenLocal()

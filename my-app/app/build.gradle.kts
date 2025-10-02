@@ -1,5 +1,6 @@
 plugins {
     `application`
+    id("org.license")
 }
 
 repositories {
@@ -22,3 +23,5 @@ dependencies{
 tasks.named<Test>("test") {
     useJUnitPlatform()                                              
 }
+
+println("BUILD STEP 2: Configuration phase")

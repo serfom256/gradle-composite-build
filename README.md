@@ -1,6 +1,6 @@
 # This is the simple tutorial that shows how to organize composite project with gradle
 
-### Project structure
+## Project structure:
 ```
 ├── ext-lib # library from external repository
 │   ├── ext-lib # module, that will be published as a platform
@@ -72,6 +72,27 @@
 │                       └── sample
 │                           └── stringutils
 │                               └── Strings.java
+│
+│
+│──────────────────────────────────────────────────
+│
+│
+├── plugins
+│   └── license-plugin
+│       ├── gradle
+│       │   └── libs.versions.toml # plugin dependencies
+│       ├── license-plugin # plugin, that inserts license into class header
+│       │   ├── build.gradle.kts
+│       │   └── src
+│       │       ├── main
+│       │          └── kotlin
+│       │              └── org
+│       │                  └── license
+│       │                      └── LicensePlugin.kt
+│       └── settings.gradle.kts
+│
+│
+├── plugin-license.txt
 ├── README.md
 └── settings.gradle.kts
 ```
@@ -84,14 +105,14 @@ main application `:my-app:app` includes :
 
 ---
 
-### Project set up
+## Project set up:
 Requirements:
 - Java 17 +
 - gradle 8.13 +
 
 Also you need to publish `:ext-lib` to local maven repository(~/.m2): `gradle :ext-lib:publishToMavenLocal`
 
-### How to run main app with external dependencies:
+## How to run main app with external dependencies:
 ```
 gradle :my-app:app:run
 ```
@@ -103,3 +124,14 @@ true
 6878f544-0371-4a67-8b74-3c01d8e76269
 Api implementation called
 ```
+
+---
+
+
+## Plugins:
+
+### License plugin
+License inserts license text to java file header:
+- add ```id("org.license")``` plugin into build script
+- check license task is available: ```./gradlew :my-app:app:tasks```
+- add license to project files: ```./gradlew :my-app:app:license```
