@@ -2,7 +2,7 @@
 
 ## Project structure:
 ```
-├── ext-lib-platform # library from external repository
+├── ext-lib-platform # platform root
 │   ├── ext-platform # bill of material, that will be published as a platform
 │   │   └── build.gradle.kts
 │   ├── gradle
@@ -14,13 +14,7 @@
 │──────────────────────────────────────────────────
 │ 
 │ 
-├── gradle # project dependencies
-│   └── libs.versions.toml
-│ 
-│──────────────────────────────────────────────────
-│ 
-│ 
-├── my-app # your application
+├── my-app # application root
 │   ├── api # api module
 │   │   ├── build.gradle.kts
 │   │   └── src
@@ -42,8 +36,6 @@
 │   │               └── org
 │   │                   └── myapp
 │   │                       └── AppTest.java # application tests
-│   ├── gradle # app libraries with versions
-│   │   └── libs.versions.toml
 │   └── settings.gradle.kts
 │ 
 │ 
@@ -79,8 +71,6 @@
 │
 ├── plugins
 │   └── license-plugin
-│       ├── gradle
-│       │   └── libs.versions.toml # plugin dependencies
 │       ├── license-plugin # plugin, that inserts license into class header
 │       │   ├── build.gradle.kts
 │       │   └── src
@@ -97,11 +87,11 @@
 └── settings.gradle.kts
 ```
 
-main application `:my-app:app` includes :
+`:my-app:app` includes dependencies:
 - :my-app:api
 - :my-lib:number-utils
 - :my-lib:string-utils
-- ext-lib-platform(from external repository like ~/.m2)
+- ext-lib-platform(published bom)
 
 ---
 
@@ -114,7 +104,7 @@ Also you need to publish `:ext-platform` to local maven repository(~/.m2): `cd e
 
 ## How to run main app with external dependencies:
 ```
-gradle :my-app:app:run
+./gradlew :my-app:app:run
 ```
 After run the app, you’ll get an essentially identical output:
 ```
@@ -131,7 +121,7 @@ Api implementation called
 ## Plugins:
 
 ### License plugin
-License inserts license text to java file header:
+License plugin inserts license text to java file headers:
 - add ```id("org.license")``` plugin into build script
 - check license task is available: ```./gradlew :my-app:app:tasks```
-- add license to project files: ```./gradlew :my-app:app:license```
+- add license for java files: ```./gradlew :my-app:app:license```
